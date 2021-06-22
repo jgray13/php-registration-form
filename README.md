@@ -4,4 +4,4 @@ First, I created a MySQL database named users. A table named users is created in
 
 The Registration page contains an HTML form with inputs for username, email, password and password confirmation. The input is validated with PHP, an error message appears for empty or invalid fields on submission of the form.
 
-Afrer successful registration, redirect to the Login page which contains a simple HTML form with inputs for username and password. Inputs are validated, an error message is shown for empty/invalid fields. The inputs are verified with the database record. After successful login, redirect to Welcome page.
+After successful registration, redirect to the Login page which contains a simple HTML form with inputs for username and password. Inputs are validated, an error message is shown for empty/invalid fields. The inputs are verified with the database record. After successful login, redirect to Welcome page.
