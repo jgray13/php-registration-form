@@ -1,4 +1,4 @@
-# php-registration-form
+# php-registration-system
 
 First, I created a MySQL database named users. A table named users is created inside the database with the users.sql file. Connection to the database is made with the config file. The config file is required in the Registration and Login pages.
 
