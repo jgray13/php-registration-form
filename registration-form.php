@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+require_once 'config.php';
 $page_title = 'Registration Form';
 $username = '';
 $email = '';
@@ -10,10 +10,18 @@ $email_error = '';
 $password_error = '';
 $confirm_password_error = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$username = trim($_POST['username']);
-	$email = trim($_POST['email']);
-	$password = trim($_POST['password']);
-	$confirm_password = trim($_POST['confirm_password']);
+	if (isset($_POST['username'])) {
+    	$username = trim($_POST['username']);
+	}
+	if (isset($_POST['email'])) {
+    	$email = trim($_POST['email']);
+	}
+	if (isset($_POST['password'])) {
+    	$password = trim($_POST['password']);
+	}
+	if (isset($_POST['confirm_password'])) {
+    	$confirm_password = trim($_POST['confirm_password']);
+	}
 	if (empty($_POST['username'])) {
 	    $username_error = 'Please enter a username';
     } elseif (!ctype_alnum($username)) {
@@ -72,30 +80,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     mysqli_close($link);
 }
-include('includes/header.html');
+include 'includes/header.html';
 ?>
 
-		    <h1>Registration Form</h1>
+		    <h1>Registration</h1>
 		        <form action="" method="POST" name="signup-form">
 			    <div id="form-inner">
 			        <label for="name">Username: </label>
 				    <input type="text" name="username" id="username" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
-				    <p class="no-margin"><?php if (!empty($username_error)) { echo  $username_error ;} ?></p>
+				    <p class="no-margin"><?php if (!empty($username_error)) echo  $username_error; ?></p>
 				
 				    <br><label for="email">Email: </label>
 				    <input type="email" name="email" id="email" value="<?PHP if (isset($_POST['email'])) echo $_POST['email']; ?>">
-				    <p class="no-margin"><?php if (!empty($email_error)) { echo  $email_error ;} ?></p>
+				    <p class="no-margin"><?php if (!empty($email_error)) echo  $email_error; ?></p>
 				
 				    <br><label for="password">Password: </label>
 				    <input type="password" name="password" id="password" >
-				    <p class="no-margin"><?php if (!empty($password_error)) { echo  $password_error ;} ?></p>
+				    <p class="no-margin"><?php if (!empty($password_error)) echo $password_error; ?></p>
 				
 				    <br><label for="confirm_password">Confirm Password: </label>
 				    <input type="password" name="confirm_password" id="confirm_password" >
-				    <p class="no-margin"><?php if (!empty($confirm_password_error)) { echo  $confirm_password_error ;} ?></p>
+				    <p class="no-margin"><?php if (!empty($confirm_password_error)) echo  $confirm_password_error; ?></p>
 				
 		            <br><input type="submit" name="register" value="register" class="submit-button">
 		        </div>
 <?php
-include('includes/footer.html');
+include 'includes/footer.html';
 ?>

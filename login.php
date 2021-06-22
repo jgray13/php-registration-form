@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+require_once 'config.php';
 $page_title = 'Login';
 $username = '';
 $password = '';
@@ -36,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						if (password_verify($password, $hashed_password)) {
 							header('Location: welcome.php');
 						} else {
-							$login_error = 'Invalid password'; // invalid password
+							$login_error = 'Invalid password';
 						}
 					}
 				} else {
-					$login_error = 'Invalid username'; // username doesn't exist
+					$login_error = 'Invalid username';
 				}
 			} else {
 				echo 'Something went wrong. Please try again later';
@@ -50,18 +50,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	mysqli_close($link);
 }
-include('includes/header.html');
+include 'includes/header.html';
 ?>
 		    <h1>Login</h1>
 			    <form action="" method="POST">
 				<div id="form-inner">
 				    <label for="username">Username: </label>
 					<input type="text" name="username" id="username" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
-					<p class="no-margin"><?php if (!empty($username_error)) { echo  $username_error;}?></p>
+					<p class="no-margin"><?php if (!empty($username_error)) echo  $username_error;?></p>
 					
 					<br><label for="password">Password: </label>
 					<input type="password" name="password" id="password">
-					<p class="no-margin"><?php if (!empty($password_error)) { echo " $password_error";}?></p>
+					<p class="no-margin"><?php if (!empty($password_error)) echo " $password_error";?></p>
 					
 					<br><input type="submit" name="submit" Value="submit" class="submit-button"><br>
 					
@@ -71,5 +71,5 @@ include('includes/header.html');
 		
 		
 <?php
-include('includes/footer.html');
+include 'includes/footer.html';
 ?>
