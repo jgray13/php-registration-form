@@ -49,6 +49,7 @@ input {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999), color-stop(0.2, #999));
 	cursor: pointer;
 	float: none;
+	display: block;
 }
 .no-margin {
 	clear: both;
