@@ -84,26 +84,30 @@ include 'includes/header.html';
 ?>
 
 		    <h1>Registration</h1>
-		        <form action="" method="POST" name="signup-form">
-			    <div id="form-inner">
-			        <label for="name">Username: </label>
-				    <input type="text" name="username" id="username" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
-				    <p class="no-margin"><?php if (!empty($username_error)) echo  $username_error; ?></p>
+		        <form action="" method="POST" id="signup-form">
+			        <div id="form-inner">
+					    <fieldset>
+					        <legend>Complete this form to register</legend>
+			                <label for="name">Username: </label>
+				            <input type="text" name="username" id="username" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
+				            <p class="err-message"><?php if (!empty($username_error)) echo  $username_error; ?></p>
 				
-				    <br><label for="email">Email: </label>
-				    <input type="email" name="email" id="email" value="<?PHP if (isset($_POST['email'])) echo $_POST['email']; ?>">
-				    <p class="no-margin"><?php if (!empty($email_error)) echo  $email_error; ?></p>
+				            <br><label for="email">Email: </label>
+				            <input type="email" name="email" id="email" value="<?PHP if (isset($_POST['email'])) echo $_POST['email']; ?>">
+				            <p class="err-message"><?php if (!empty($email_error)) echo  $email_error; ?></p>
 				
-				    <br><label for="password">Password: </label>
-				    <input type="password" name="password" id="password" >
-				    <p class="no-margin"><?php if (!empty($password_error)) echo $password_error; ?></p>
+				            <br><label for="password">Password: </label>
+				            <input type="password" name="password" id="password" >
+				            <p class="err-message"><?php if (!empty($password_error)) echo $password_error; ?></p>
 				
-				    <br><label for="confirm_password">Confirm Password: </label>
-				    <input type="password" name="confirm_password" id="confirm_password" >
-				    <p class="no-margin"><?php if (!empty($confirm_password_error)) echo  $confirm_password_error; ?></p>
+				            <br><label for="confirm_password">Confirm Password: </label>
+				            <input type="password" name="confirm_password" id="confirm_password" >
+				            <p class="err-message"><?php if (!empty($confirm_password_error)) echo  $confirm_password_error; ?></p>
 				
-		            <br><input type="submit" name="register" value="register" class="submit-button">
-		        </div>
+		                    <br><input type="submit" name="register" value="register" class="submit-button">
+						</fieldset>
+		            </div>
+				</form>
 <?php
 include 'includes/footer.html';
 ?>

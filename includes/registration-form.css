@@ -14,16 +14,26 @@ body {
 main {
 	position: relative;
 	min-height: 100vh;
-	margin: 3em 0 0 0;
+	margin: 1em 0 0 0;
+	padding: 0 0 2em;
 	text-align: center;
 }
 form {
 	text-align: center;
+	margin: 1em 0 0;
+}
+#signup-form {
+	margin: 0;
 }
 #form-inner {
 	display: inline-block;
 	text-align: left;
-	margin: 1em 0 0 0;
+}
+fieldset {
+	padding: 1em 0.5em;
+}
+legend {
+	width: auto;
 }
 label {
 	padding-right: 10px;
@@ -51,10 +61,44 @@ input {
 	float: none;
 	display: block;
 }
-.no-margin {
+#login-button {
+	margin: 0 auto 1em;
+}
+.err-message {
 	clear: both;
 	margin: 0;
 	color: red;
 	height: 22px;
 	font-size: 14px;
+}
+@media only screen and (max-width: 350px) {
+input[type="text"], input[type="email"], input[type="password"] {
+	width: 35%;
+}
+}
+@media only screen and (min-width: 351px) and (max-width: 380px) {
+input[type="text"], input[type="email"], input[type="password"] {
+	width: 40%;
+}
+}
+@media only screen and (min-width: 381px) and (max-width: 420px) {
+input[type="text"], input[type="email"], input[type="password"] {
+	width: 45%;
+}
+}
+@media only screen and (min-width: 370px) {
+	fieldset {
+		padding: 1em 0.75em;
+}
+}
+@media only screen and (min-width: 600px) {
+	fieldset {
+		padding: 2em;
+}
+}
+@media only screen and (min-width: 768px) {
+	main {
+		margin: 3em 0 0;
+		padding: 0;
+	}
 }
